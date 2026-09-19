@@ -103,20 +103,20 @@
       <article class="card">
         <div class="card__head">
           <h3 data-lang="en">LINZA — on-premise RAG platform for lessons-learned analysis</h3>
-          <h3 data-lang="uk">ЛІНЗА — on-premise RAG-платформа для вивчення військового досвіду</h3>
-          <span class="tag tag--prod" data-lang="en">in production</span><span class="tag tag--prod" data-lang="uk">у проді</span>
+          <h3 data-lang="uk">ЛІНЗА — платформа аналізу документів для вивчення військового досвіду</h3>
+          <span class="tag tag--prod" data-lang="en">in production</span><span class="tag tag--prod" data-lang="uk">в експлуатації</span>
         </div>
         <p class="card__meta" data-lang="en">Institute of Software Systems, NAS of Ukraine · for the Armed Forces of Ukraine · 2025–2026</p>
-        <p class="card__meta" data-lang="uk">Інститут програмних систем НАН України · для ЗСУ · 2025–2026</p>
+        <p class="card__meta" data-lang="uk">Інститут програмних систем НАН України · замовник — Збройні Сили України · 2025–2026</p>
         <p data-lang="en">
           Twelve modules from document registry to root-cause analysis, report synthesis and DOCX export.
           FastAPI + Qdrant + Ollama, five-role RBAC, SSE streaming, five-stage GitLab CI/CD deploying to Kubernetes.
           An LLM-as-judge benchmark drove the production model swap: generation 54 s instead of 317 s at the same quality score.
         </p>
         <p data-lang="uk">
-          Дванадцять модулів — від реєстру документів до аналізу першопричин, синтезу звітів та експорту в DOCX.
-          FastAPI + Qdrant + Ollama, RBAC на п'ять ролей, стрімінг відповідей (SSE), п'ятистадійний CI/CD на GitLab із деплоєм у Kubernetes.
-          Бенчмарк LLM-as-judge визначив заміну моделі в проді: генерація 54 с замість 317 с за тієї самої оцінки якості.
+          Система розгорнута в закритому контурі замовника й працює на локальних мовних моделях. Дванадцять функціональних модулів охоплюють реєстр документів, аналіз першопричин, синтез звітів та експорт у DOCX.
+          Реалізовано розмежування доступу на п'ять ролей, потокову видачу відповідей і п'ятистадійний конвеєр CI/CD на GitLab із розгортанням у Kubernetes.
+          Заміну моделі в експлуатації обґрунтовано бенчмарком за методом LLM-as-judge: тривалість генерації скорочено з 317 до 54 секунд за незмінної оцінки якості.
         </p>
         <p class="card__stack">Python · FastAPI · Qdrant · Ollama · PostgreSQL · Kubernetes · GitLab CI</p>
       </article>
@@ -125,7 +125,7 @@
         <div class="card__head">
           <h3 data-lang="en">TERMIN — military terminology knowledge graph</h3>
           <h3 data-lang="uk">ТЕРМІН — військовий термінологічний граф знань</h3>
-          <span class="tag tag--prod" data-lang="en">in production</span><span class="tag tag--prod" data-lang="uk">у проді</span>
+          <span class="tag tag--prod" data-lang="en">in production</span><span class="tag tag--prod" data-lang="uk">в експлуатації</span>
         </div>
         <p class="card__meta" data-lang="en">Institute of Software Systems, NAS of Ukraine · 2025–2026</p>
         <p class="card__meta" data-lang="uk">Інститут програмних систем НАН України · 2025–2026</p>
@@ -134,8 +134,8 @@
           role-based triage UI and a REST contract consumed by LINZA through a pluggable provider.
         </p>
         <p data-lang="uk">
-          Українська військова термінологія як граф SKOS-XL: 76 000 термінів, канонізація синонімів, ієрархія ширше/вужче,
-          тріаж-інтерфейс із ролями та REST-контракт, який ЛІНЗА споживає через змінний провайдер.
+          Онтологічний сервіс, що подає українську військову термінологію у вигляді графа знань за стандартом SKOS-XL: 76 000 термінів, канонізація синонімів, ієрархічні зв'язки між поняттями.
+          Передбачено інтерфейс експертного опрацювання термінів із розмежуванням ролей та REST-контракт, через який ЛІНЗА отримує термінологію за змінним постачальником даних.
         </p>
         <p class="card__stack">FastAPI · PostgreSQL + pgvector · Ollama · k3s · Helm</p>
       </article>
@@ -143,18 +143,18 @@
       <article class="card">
         <div class="card__head">
           <h3 data-lang="en">Cosmotrade — AI manager in the client's chat</h3>
-          <h3 data-lang="uk">Космотрейд — ШІ-менеджер у чаті замовника</h3>
+          <h3 data-lang="uk">Космотрейд — асистент на основі ШІ для робочого чату замовника</h3>
           <span class="tag tag--pilot" data-lang="en">pilot</span><span class="tag tag--pilot" data-lang="uk">пілот</span>
         </div>
         <p class="card__meta" data-lang="en">Independent · B2B distributor of aesthetic-medicine equipment · 2026</p>
-        <p class="card__meta" data-lang="uk">Незалежно · B2B-дистриб'ютор косметологічного обладнання · 2026</p>
+        <p class="card__meta" data-lang="uk">Незалежний проєкт · дистриб'ютор косметологічного обладнання (B2B) · 2026</p>
         <p data-lang="en">
           Telegram message → structured intent via LLM → human confirmation card → task in Asana.
           Meeting transcription on self-hosted Whisper. Discovery, specification and a three-tier commercial proposal — then the pilot itself.
         </p>
         <p data-lang="uk">
-          Повідомлення в Telegram → структурований намір через LLM → картка підтвердження людиною → задача в Asana.
-          Транскрипція зустрічей на власному Whisper. Discovery, ТЗ і комерційна пропозиція на три пакети — далі сам пілот.
+          Асистент перетворює повідомлення з Telegram на структуровану задачу за допомогою мовної моделі, подає її на підтвердження відповідальній особі та після погодження створює задачу в Asana.
+          Зустрічі транскрибуються на власній інсталяції Whisper. Проведено обстеження процесів замовника, підготовлено технічне завдання та комерційну пропозицію з трьома пакетами; пілотне впровадження триває.
         </p>
         <p class="card__stack">Python · aiogram · Ollama · Asana API · Vexa/Whisper</p>
       </article>
@@ -162,8 +162,8 @@
       <article class="card">
         <div class="card__head">
           <h3 data-lang="en">keel-core / keel-agent — LLM core library and personal agent</h3>
-          <h3 data-lang="uk">keel-core / keel-agent — бібліотека LLM-ядра і персональний агент</h3>
-          <span class="tag tag--daily" data-lang="en">daily use</span><span class="tag tag--daily" data-lang="uk">щоденно</span>
+          <h3 data-lang="uk">keel-core / keel-agent — базова бібліотека для роботи з мовними моделями та персональний агент</h3>
+          <span class="tag tag--daily" data-lang="en">daily use</span><span class="tag tag--daily" data-lang="uk">у користуванні</span>
         </div>
         <p class="card__meta" data-lang="en">Own project · 2026 · private repository</p>
         <p class="card__meta" data-lang="uk">Власний проєкт · 2026 · приватний репозиторій</p>
@@ -173,9 +173,8 @@
           confirmation before irreversible actions. 2 500 tests, a second instance for an external tester.
         </p>
         <p data-lang="uk">
-          Тонка бібліотека для патерну «недовірений текст → структурована відповідь LLM → перевірений результат»: клієнт, guardrails,
-          спостережуваність, ембедінги + Qdrant. Поверх неї Telegram-агент для голосу й тексту з маршрутизацією наміру та
-          підтвердженням перед незворотною дією. 2 500 тестів, окремий інстанс для зовнішнього тестувальника.
+          Бібліотека реалізує єдиний шаблон обробки: недовірений текст надходить до мовної моделі, відповідь повертається у структурованому вигляді та проходить перевірку перед використанням. До складу входять клієнт моделі, захисні правила, спостережуваність, векторні подання та інтеграція з Qdrant.
+          На її основі побудовано персонального агента в Telegram, який приймає голосові й текстові команди, визначає намір і запитує підтвердження перед незворотними діями. Покриття — 2 500 тестів; окремий екземпляр розгорнуто для зовнішнього тестування.
         </p>
         <p class="card__stack">Python · Pydantic · Qdrant · PostgreSQL · Whisper · Docker</p>
       </article>
@@ -183,7 +182,7 @@
       <article class="card">
         <div class="card__head">
           <h3 data-lang="en">CRM Dropship — SaaS for dropshipping suppliers</h3>
-          <h3 data-lang="uk">CRM Dropship — SaaS для постачальників дропшипінгу</h3>
+          <h3 data-lang="uk">CRM Dropship — хмарна CRM-система для постачальників у моделі дропшипінгу</h3>
           <span class="tag tag--mvp">MVP</span>
         </div>
         <p class="card__meta" data-lang="en">Own product · mydrop.com.ua · 2025–2026</p>
@@ -193,8 +192,8 @@
           AI modules on the Anthropic API: smart replies, anomaly detection, semantic search.
         </p>
         <p data-lang="uk">
-          Замовлення з інтеграцією перевізника, склад з аудитом руху товару, чати з трьох месенджерів, 15 KPI.
-          ШІ-модулі на Anthropic API: розумні відповіді, виявлення аномалій, семантичний пошук.
+          Система веде замовлення з інтеграцією служби доставки, складський облік із журналом руху товарів, листування з клієнтами з трьох месенджерів та аналітику за 15 показниками.
+          Модулі на основі Anthropic API формують відповіді клієнтам, виявляють аномалії в даних і забезпечують семантичний пошук.
         </p>
         <p class="card__stack">NestJS · TypeScript · PostgreSQL + Prisma · Redis · BullMQ · React · Anthropic API</p>
       </article>
@@ -202,8 +201,8 @@
       <article class="card">
         <div class="card__head">
           <h3 data-lang="en">OSINT platform — source collection and moderation</h3>
-          <h3 data-lang="uk">OSINT-платформа — збір джерел і модерація</h3>
-          <span class="tag tag--daily" data-lang="en">running</span><span class="tag tag--daily" data-lang="uk">працює</span>
+          <h3 data-lang="uk">OSINT-платформа — збирання відкритих джерел та модерація публікацій</h3>
+          <span class="tag tag--daily" data-lang="en">running</span><span class="tag tag--daily" data-lang="uk">в експлуатації</span>
         </div>
         <p class="card__meta" data-lang="en">Own project · 2026</p>
         <p class="card__meta" data-lang="uk">Власний проєкт · 2026</p>
@@ -212,8 +211,8 @@
           Configuration, code-duplication and performance audits; specifications kept in OpenSpec.
         </p>
         <p data-lang="uk">
-          Збір із Telegram-каналів, класифікація тем і виявлення дублікатів через simhash — свідомо без LLM у конвеєрі (детермінізм, нульова вартість за елемент) — і черга модерації замість автопостингу.
-          Аудити конфігурації, дублювання коду й продуктивності; специфікації в OpenSpec.
+          Платформа збирає публікації з Telegram-каналів, класифікує їх за темами та виявляє дублікати методом simhash. Мовні моделі в конвеєрі не застосовуються — це свідоме архітектурне рішення на користь детермінованості й нульової вартості обробки. Публікації проходять чергу модерації замість автоматичного розміщення.
+          Проведено аудити конфігурації, дублювання коду та продуктивності; специфікації ведуться в OpenSpec.
         </p>
         <p class="card__stack">Python · Telethon · aiogram · PostgreSQL · OpenSpec</p>
       </article>
@@ -223,7 +222,7 @@
         <a href="https://docquanty.github.io/portfolio/">archive</a>.
       </p>
       <p class="work__earlier" data-lang="uk">
-        Раніше (2020–2021): верстка на HTML/SCSS —
+        Роботи попереднього періоду (2020–2021) — верстка вебсторінок на HTML/SCSS:
         <a href="https://docquanty.github.io/portfolio/">архів</a>.
       </p>
     </section>
