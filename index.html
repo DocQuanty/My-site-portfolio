@@ -10,20 +10,28 @@
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="style.css">
   <script>
-    // Apply a saved theme before first paint to avoid a flash; system theme otherwise.
+    // Apply saved theme and language before first paint to avoid a flash.
+    // Language default: browser language uk → Ukrainian, anything else → English.
     try {
       var t = localStorage.getItem('theme');
       if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
-    } catch (e) {}
+      var l = localStorage.getItem('lang');
+      if (l !== 'uk' && l !== 'en') l = /^uk/i.test(navigator.language || '') ? 'uk' : 'en';
+      document.documentElement.setAttribute('data-lang', l);
+      document.documentElement.setAttribute('lang', l);
+    } catch (e) {
+      document.documentElement.setAttribute('data-lang', 'en');
+    }
   </script>
 </head>
 <body>
   <header class="top">
     <a class="top__name" href="#">K. Yurchenko</a>
     <nav class="top__nav">
-      <a href="#work">Work</a>
-      <a href="#publications">Publications</a>
-      <a href="#contact">Contact</a>
+      <a href="#work" data-lang="en">Work</a><a href="#work" data-lang="uk">Роботи</a>
+      <a href="#publications" data-lang="en">Publications</a><a href="#publications" data-lang="uk">Публікації</a>
+      <a href="#contact" data-lang="en">Contact</a><a href="#contact" data-lang="uk">Контакти</a>
+      <button class="lang-toggle" type="button" aria-label="Switch language / Змінити мову">UA</button>
       <button class="theme-toggle" type="button" aria-label="Toggle colour theme" title="Toggle colour theme">☾</button>
     </nav>
   </header>
@@ -31,17 +39,24 @@
   <main>
     <section class="hero">
       <div class="hero__text">
-        <p class="hero__kicker">AI Engineer · Kyiv, Ukraine</p>
-        <h1>I build LLM systems that run inside closed networks.</h1>
-        <p class="hero__lead">
+        <p class="hero__kicker" data-lang="en">AI Engineer · Kyiv, Ukraine</p>
+        <p class="hero__kicker" data-lang="uk">AI-інженер · Київ</p>
+        <h1 data-lang="en">I build LLM systems that run inside closed networks.</h1>
+        <h1 data-lang="uk">Будую системи на великих мовних моделях, що працюють у закритому контурі.</h1>
+        <p class="hero__lead" data-lang="en">
           Retrieval-augmented generation, agents and evaluation on self-hosted models —
           shipped to production for the Armed Forces of Ukraine and piloted for business.
           PhD in Computer Science (2026).
         </p>
+        <p class="hero__lead" data-lang="uk">
+          Пошук із доповненням генерації (RAG), агенти й оцінювання на локальних моделях —
+          виведено в прод для ЗСУ, пілотується для бізнесу.
+          Доктор філософії з комп'ютерних наук (2026).
+        </p>
         <p class="hero__links">
           <a href="https://github.com/DocQuanty">GitHub</a>
           <a href="https://orcid.org/0000-0003-3150-0027">ORCID</a>
-          <a href="#contact">Contact</a>
+          <a href="#contact" data-lang="en">Contact</a><a href="#contact" data-lang="uk">Контакти</a>
         </p>
       </div>
       <picture class="hero__photo">
@@ -51,119 +66,172 @@
     </section>
 
     <section class="now">
-      <h2>What I do</h2>
+      <h2 data-lang="en">What I do</h2>
+      <h2 data-lang="uk">Чим займаюся</h2>
       <div class="now__grid">
         <div>
-          <h3>RAG on local models</h3>
-          <p>Qdrant and pgvector retrieval, e5/bge-m3 embeddings, query expansion, semantic deduplication — served by Ollama, no data leaves the network.</p>
+          <h3 data-lang="en">RAG on local models</h3>
+          <h3 data-lang="uk">RAG на локальних моделях</h3>
+          <p data-lang="en">Qdrant and pgvector retrieval, e5/bge-m3 embeddings, query expansion, semantic deduplication — served by Ollama, no data leaves the network.</p>
+          <p data-lang="uk">Пошук у Qdrant і pgvector, ембедінги e5/bge-m3, розширення запитів, семантичний дедуп — усе на Ollama, дані не виходять за межі мережі.</p>
         </div>
         <div>
-          <h3>Agents with a human in the loop</h3>
-          <p>Structured output, tool use, MCP servers, confirmation before any irreversible action. Telegram as the interface people already have open.</p>
+          <h3 data-lang="en">Agents with a human in the loop</h3>
+          <h3 data-lang="uk">Агенти з людиною в контурі</h3>
+          <p data-lang="en">Structured output, tool use, MCP servers, confirmation before any irreversible action. Telegram as the interface people already have open.</p>
+          <p data-lang="uk">Структуровані відповіді, виклик інструментів, MCP-сервери, підтвердження перед незворотною дією. Telegram як інтерфейс, який у людей уже відкритий.</p>
         </div>
         <div>
-          <h3>Evaluation before release</h3>
-          <p>LLM-as-judge benchmarks, NER model comparisons, versioned prompt registries. Model choices backed by numbers, not vibes.</p>
+          <h3 data-lang="en">Evaluation before release</h3>
+          <h3 data-lang="uk">Оцінювання до релізу</h3>
+          <p data-lang="en">LLM-as-judge benchmarks, NER model comparisons, versioned prompt registries. Model choices backed by numbers, not vibes.</p>
+          <p data-lang="uk">Бенчмарки LLM-as-judge, порівняння NER-моделей, реєстри промптів із версіями. Вибір моделі — за числами, не за відчуттями.</p>
         </div>
         <div>
-          <h3>From discovery to CI/CD</h3>
-          <p>Client interviews, specification, proposal — then FastAPI, Docker, Kubernetes, GitLab CI. One person who sees the whole path.</p>
+          <h3 data-lang="en">From discovery to CI/CD</h3>
+          <h3 data-lang="uk">Від discovery до CI/CD</h3>
+          <p data-lang="en">Client interviews, specification, proposal — then FastAPI, Docker, Kubernetes, GitLab CI. One person who sees the whole path.</p>
+          <p data-lang="uk">Інтерв'ю з клієнтом, ТЗ, комерційна пропозиція — далі FastAPI, Docker, Kubernetes, GitLab CI. Одна людина, яка бачить увесь шлях.</p>
         </div>
       </div>
     </section>
 
     <section id="work" class="work">
-      <h2>Selected work</h2>
+      <h2 data-lang="en">Selected work</h2>
+      <h2 data-lang="uk">Вибрані роботи</h2>
 
       <article class="card">
         <div class="card__head">
-          <h3>LINZA — on-premise RAG platform for lessons-learned analysis</h3>
-          <span class="tag tag--prod">in production</span>
+          <h3 data-lang="en">LINZA — on-premise RAG platform for lessons-learned analysis</h3>
+          <h3 data-lang="uk">ЛІНЗА — on-premise RAG-платформа для вивчення військового досвіду</h3>
+          <span class="tag tag--prod" data-lang="en">in production</span><span class="tag tag--prod" data-lang="uk">у проді</span>
         </div>
-        <p class="card__meta">Institute of Software Systems, NAS of Ukraine · for the Armed Forces of Ukraine · 2025–2026</p>
-        <p>
+        <p class="card__meta" data-lang="en">Institute of Software Systems, NAS of Ukraine · for the Armed Forces of Ukraine · 2025–2026</p>
+        <p class="card__meta" data-lang="uk">Інститут програмних систем НАН України · для ЗСУ · 2025–2026</p>
+        <p data-lang="en">
           Twelve modules from document registry to root-cause analysis, report synthesis and DOCX export.
           FastAPI + Qdrant + Ollama, five-role RBAC, SSE streaming, five-stage GitLab CI/CD deploying to Kubernetes.
           An LLM-as-judge benchmark drove the production model swap: generation 54 s instead of 317 s at the same quality score.
+        </p>
+        <p data-lang="uk">
+          Дванадцять модулів — від реєстру документів до аналізу першопричин, синтезу звітів та експорту в DOCX.
+          FastAPI + Qdrant + Ollama, RBAC на п'ять ролей, стрімінг відповідей (SSE), п'ятистадійний CI/CD на GitLab із деплоєм у Kubernetes.
+          Бенчмарк LLM-as-judge визначив заміну моделі в проді: генерація 54 с замість 317 с за тієї самої оцінки якості.
         </p>
         <p class="card__stack">Python · FastAPI · Qdrant · Ollama · PostgreSQL · Kubernetes · GitLab CI</p>
       </article>
 
       <article class="card">
         <div class="card__head">
-          <h3>TERMIN — military terminology knowledge graph</h3>
-          <span class="tag tag--prod">in production</span>
+          <h3 data-lang="en">TERMIN — military terminology knowledge graph</h3>
+          <h3 data-lang="uk">ТЕРМІН — військовий термінологічний граф знань</h3>
+          <span class="tag tag--prod" data-lang="en">in production</span><span class="tag tag--prod" data-lang="uk">у проді</span>
         </div>
-        <p class="card__meta">Institute of Software Systems, NAS of Ukraine · 2025–2026</p>
-        <p>
+        <p class="card__meta" data-lang="en">Institute of Software Systems, NAS of Ukraine · 2025–2026</p>
+        <p class="card__meta" data-lang="uk">Інститут програмних систем НАН України · 2025–2026</p>
+        <p data-lang="en">
           Ukrainian military terminology as a SKOS-XL graph: 76 000 terms, synonym canonisation, broader/narrower hierarchy,
           role-based triage UI and a REST contract consumed by LINZA through a pluggable provider.
+        </p>
+        <p data-lang="uk">
+          Українська військова термінологія як граф SKOS-XL: 76 000 термінів, канонізація синонімів, ієрархія ширше/вужче,
+          тріаж-інтерфейс із ролями та REST-контракт, який ЛІНЗА споживає через змінний провайдер.
         </p>
         <p class="card__stack">FastAPI · PostgreSQL + pgvector · Ollama · k3s · Helm</p>
       </article>
 
       <article class="card">
         <div class="card__head">
-          <h3>Cosmotrade — AI manager in the client's chat</h3>
-          <span class="tag tag--pilot">pilot</span>
+          <h3 data-lang="en">Cosmotrade — AI manager in the client's chat</h3>
+          <h3 data-lang="uk">Космотрейд — ШІ-менеджер у чаті замовника</h3>
+          <span class="tag tag--pilot" data-lang="en">pilot</span><span class="tag tag--pilot" data-lang="uk">пілот</span>
         </div>
-        <p class="card__meta">Independent · B2B distributor of aesthetic-medicine equipment · 2026</p>
-        <p>
+        <p class="card__meta" data-lang="en">Independent · B2B distributor of aesthetic-medicine equipment · 2026</p>
+        <p class="card__meta" data-lang="uk">Незалежно · B2B-дистриб'ютор косметологічного обладнання · 2026</p>
+        <p data-lang="en">
           Telegram message → structured intent via LLM → human confirmation card → task in Asana.
           Meeting transcription on self-hosted Whisper. Discovery, specification and a three-tier commercial proposal — then the pilot itself.
+        </p>
+        <p data-lang="uk">
+          Повідомлення в Telegram → структурований намір через LLM → картка підтвердження людиною → задача в Asana.
+          Транскрипція зустрічей на власному Whisper. Discovery, ТЗ і комерційна пропозиція на три пакети — далі сам пілот.
         </p>
         <p class="card__stack">Python · aiogram · Ollama · Asana API · Vexa/Whisper</p>
       </article>
 
       <article class="card">
         <div class="card__head">
-          <h3>keel-core / keel-agent — LLM core library and personal agent</h3>
-          <span class="tag tag--daily">daily use</span>
+          <h3 data-lang="en">keel-core / keel-agent — LLM core library and personal agent</h3>
+          <h3 data-lang="uk">keel-core / keel-agent — бібліотека LLM-ядра і персональний агент</h3>
+          <span class="tag tag--daily" data-lang="en">daily use</span><span class="tag tag--daily" data-lang="uk">щоденно</span>
         </div>
-        <p class="card__meta">Own project · 2026 · private repository</p>
-        <p>
+        <p class="card__meta" data-lang="en">Own project · 2026 · private repository</p>
+        <p class="card__meta" data-lang="uk">Власний проєкт · 2026 · приватний репозиторій</p>
+        <p data-lang="en">
           A thin library for the pattern "untrusted text → LLM structured output → verified result": client, guardrails,
           observability, embeddings + Qdrant. On top of it a Telegram agent for voice and text with intent routing and
           confirmation before irreversible actions. 2 500 tests, a second instance for an external tester.
+        </p>
+        <p data-lang="uk">
+          Тонка бібліотека для патерну «недовірений текст → структурована відповідь LLM → перевірений результат»: клієнт, guardrails,
+          спостережуваність, ембедінги + Qdrant. Поверх неї Telegram-агент для голосу й тексту з маршрутизацією наміру та
+          підтвердженням перед незворотною дією. 2 500 тестів, окремий інстанс для зовнішнього тестувальника.
         </p>
         <p class="card__stack">Python · Pydantic · Qdrant · PostgreSQL · Whisper · Docker</p>
       </article>
 
       <article class="card">
         <div class="card__head">
-          <h3>CRM Dropship — SaaS for dropshipping suppliers</h3>
+          <h3 data-lang="en">CRM Dropship — SaaS for dropshipping suppliers</h3>
+          <h3 data-lang="uk">CRM Dropship — SaaS для постачальників дропшипінгу</h3>
           <span class="tag tag--mvp">MVP</span>
         </div>
-        <p class="card__meta">Own product · mydrop.com.ua · 2025–2026</p>
-        <p>
+        <p class="card__meta" data-lang="en">Own product · mydrop.com.ua · 2025–2026</p>
+        <p class="card__meta" data-lang="uk">Власний продукт · mydrop.com.ua · 2025–2026</p>
+        <p data-lang="en">
           Orders with carrier integration, warehouse with audited stock movements, chats from three messengers, 15 KPIs.
           AI modules on the Anthropic API: smart replies, anomaly detection, semantic search.
+        </p>
+        <p data-lang="uk">
+          Замовлення з інтеграцією перевізника, склад з аудитом руху товару, чати з трьох месенджерів, 15 KPI.
+          ШІ-модулі на Anthropic API: розумні відповіді, виявлення аномалій, семантичний пошук.
         </p>
         <p class="card__stack">NestJS · TypeScript · PostgreSQL + Prisma · Redis · BullMQ · React · Anthropic API</p>
       </article>
 
       <article class="card">
         <div class="card__head">
-          <h3>OSINT platform — source collection and moderation</h3>
-          <span class="tag tag--daily">running</span>
+          <h3 data-lang="en">OSINT platform — source collection and moderation</h3>
+          <h3 data-lang="uk">OSINT-платформа — збір джерел і модерація</h3>
+          <span class="tag tag--daily" data-lang="en">running</span><span class="tag tag--daily" data-lang="uk">працює</span>
         </div>
-        <p class="card__meta">Own project · 2026</p>
-        <p>
+        <p class="card__meta" data-lang="en">Own project · 2026</p>
+        <p class="card__meta" data-lang="uk">Власний проєкт · 2026</p>
+        <p data-lang="en">
           Telegram-channel ingestion, topic classification and near-duplicate detection via simhash — deliberately no LLM in the pipeline (deterministic, zero per-item cost) — and a moderation queue instead of autoposting.
           Configuration, code-duplication and performance audits; specifications kept in OpenSpec.
+        </p>
+        <p data-lang="uk">
+          Збір із Telegram-каналів, класифікація тем і виявлення дублікатів через simhash — свідомо без LLM у конвеєрі (детермінізм, нульова вартість за елемент) — і черга модерації замість автопостингу.
+          Аудити конфігурації, дублювання коду й продуктивності; специфікації в OpenSpec.
         </p>
         <p class="card__stack">Python · Telethon · aiogram · PostgreSQL · OpenSpec</p>
       </article>
 
-      <p class="work__earlier">
+      <p class="work__earlier" data-lang="en">
         Earlier (2020–2021): front-end layouts in HTML/SCSS —
         <a href="https://docquanty.github.io/portfolio/">archive</a>.
+      </p>
+      <p class="work__earlier" data-lang="uk">
+        Раніше (2020–2021): верстка на HTML/SCSS —
+        <a href="https://docquanty.github.io/portfolio/">архів</a>.
       </p>
     </section>
 
     <section id="publications" class="pubs">
-      <h2>Publications</h2>
-      <ul>
+      <h2 data-lang="en">Publications</h2>
+      <h2 data-lang="uk">Публікації</h2>
+      <ul data-lang="en">
         <li>
           Rogushina J., Yurchenko K., Bova Yu. <em>Integration of Semantic Wiki Technologies with Large Language Models as a Technological Foundation for Experience Acquisition from Natural Language Documents.</em>
           AISTDS'2025, CEUR Workshop Proceedings, Vol. 4133, pp. 115–135.
@@ -177,41 +245,74 @@
           Problems in Programming, 2025, no. 2, pp. 63–76. <a href="https://doi.org/10.15407/pp2025.02.063">DOI</a>
         </li>
       </ul>
-      <p>Full list — <a href="https://orcid.org/0000-0003-3150-0027">ORCID 0000-0003-3150-0027</a>.
+      <ul data-lang="uk">
+        <li>
+          Rogushina J., Yurchenko K., Bova Yu. <em>Integration of Semantic Wiki Technologies with Large Language Models as a Technological Foundation for Experience Acquisition from Natural Language Documents.</em>
+          AISTDS'2025, CEUR Workshop Proceedings, Vol. 4133, С. 115–135.
+        </li>
+        <li>
+          Сініцин І. П., Юрченко К. Ю., Лащонов Б. В., Бова Ю. В. <em>Архітектурне рішення для чат-бота з рекурсивним уточненням знань на базі LLaMA 3 та Semantic MediaWiki.</em>
+          Таврійський науковий вісник. Серія: Технічні науки. 2025. Вип. 4. <a href="https://doi.org/10.32782/tnv-tech.2025.4.1.27">DOI</a>
+        </li>
+        <li>
+          Сініцин І. П., Рогушина Ю. В., Юрченко К. Ю. <em>Інтеграція великих мовних моделей із засобами семантичної обробки як інструмент цифровізації знань.</em>
+          Проблеми програмування. 2025. № 2. С. 63–76. <a href="https://doi.org/10.15407/pp2025.02.063">DOI</a>
+        </li>
+      </ul>
+      <p data-lang="en">Full list — <a href="https://orcid.org/0000-0003-3150-0027">ORCID 0000-0003-3150-0027</a>.
         PhD thesis (2026, Institute of Software Systems, NAS of Ukraine): ontological analysis and generative AI for personalising postgraduate education.</p>
+      <p data-lang="uk">Повний список — <a href="https://orcid.org/0000-0003-3150-0027">ORCID 0000-0003-3150-0027</a>.
+        Дисертація (2026, Інститут програмних систем НАН України): методи онтологічного аналізу та генеративного ШІ в персоналізації післядипломної освіти.</p>
     </section>
 
     <section id="contact" class="contact">
-      <h2>Contact</h2>
+      <h2 data-lang="en">Contact</h2>
+      <h2 data-lang="uk">Контакти</h2>
       <p>
         <a href="https://github.com/DocQuanty">github.com/DocQuanty</a> ·
         <a href="https://orcid.org/0000-0003-3150-0027">ORCID</a>
       </p>
-      <p class="contact__note">Open to AI engineering roles — on-premise and privacy-sensitive systems are where I do my best work.</p>
+      <p class="contact__note" data-lang="en">Open to AI engineering roles — on-premise and privacy-sensitive systems are where I do my best work.</p>
+      <p class="contact__note" data-lang="uk">Відкритий до ролей AI-інженера — найкраще працюю там, де системи on-premise й дані чутливі.</p>
     </section>
   </main>
 
   <footer class="foot">
     <span>© 2026 Kostiantyn Yurchenko</span>
-    <span>Static HTML, no tracking.</span>
+    <span data-lang="en">Static HTML, no tracking.</span>
+    <span data-lang="uk">Статичний HTML, без трекінгу.</span>
   </footer>
+
   <script>
     (function () {
       var root = document.documentElement;
-      var btn = document.querySelector('.theme-toggle');
+
+      // theme
+      var tBtn = document.querySelector('.theme-toggle');
       var mq = window.matchMedia('(prefers-color-scheme: dark)');
-      function current() {
-        return root.getAttribute('data-theme') || (mq.matches ? 'dark' : 'light');
-      }
-      function paint() { btn.textContent = current() === 'dark' ? '☀' : '☾'; }
-      btn.addEventListener('click', function () {
-        var next = current() === 'dark' ? 'light' : 'dark';
+      function theme() { return root.getAttribute('data-theme') || (mq.matches ? 'dark' : 'light'); }
+      function paintTheme() { tBtn.textContent = theme() === 'dark' ? '☀' : '☾'; }
+      tBtn.addEventListener('click', function () {
+        var next = theme() === 'dark' ? 'light' : 'dark';
         root.setAttribute('data-theme', next);
         try { localStorage.setItem('theme', next); } catch (e) {}
-        paint();
+        paintTheme();
       });
-      mq.addEventListener('change', paint);
-      paint();
+      mq.addEventListener('change', paintTheme);
+      paintTheme();
+
+      // language — the button shows the language you would switch TO
+      var lBtn = document.querySelector('.lang-toggle');
+      function lang() { return root.getAttribute('data-lang') === 'uk' ? 'uk' : 'en'; }
+      function paintLang() { lBtn.textContent = lang() === 'uk' ? 'EN' : 'UA'; }
+      lBtn.addEventListener('click', function () {
+        var next = lang() === 'uk' ? 'en' : 'uk';
+        root.setAttribute('data-lang', next);
+        root.setAttribute('lang', next);
+        try { localStorage.setItem('lang', next); } catch (e) {}
+        paintLang();
+      });
+      paintLang();
     })();
   </script>
 </body>
