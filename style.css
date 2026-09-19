@@ -1,0 +1,135 @@
+:root {
+  --bg: #fbfaf7;
+  --fg: #1c1b18;
+  --muted: #6b6860;
+  --line: #e4e1d8;
+  --accent: #1f5f8b;
+  --card: #ffffff;
+  --tag-prod: #1e6b3a;
+  --tag-pilot: #8a5a00;
+  --tag-daily: #1f5f8b;
+  --tag-mvp: #6b6860;
+  --max: 880px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15161a;
+    --fg: #ebe9e3;
+    --muted: #a09d94;
+    --line: #2b2d33;
+    --accent: #7fb3d5;
+    --card: #1d1f25;
+    --tag-prod: #7fd19a;
+    --tag-pilot: #e0b45a;
+    --tag-daily: #7fb3d5;
+    --tag-mvp: #a09d94;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 17px/1.55 -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+h1, h2, h3 { line-height: 1.2; margin: 0 0 .5em; }
+h1 { font-size: clamp(1.7rem, 4vw, 2.4rem); letter-spacing: -.01em; }
+h2 { font-size: 1.15rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 1.2em; }
+h3 { font-size: 1.1rem; }
+
+main, .top, .foot {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section { padding: 40px 0; border-top: 1px solid var(--line); }
+section:first-of-type { border-top: 0; }
+
+/* header */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  font-size: .95rem;
+}
+.top__name { color: var(--fg); font-weight: 600; }
+.top__nav a { margin-left: 18px; color: var(--muted); }
+.top__nav a:hover { color: var(--accent); text-decoration: none; }
+.top__cv { border: 1px solid var(--line); border-radius: 6px; padding: 4px 10px; color: var(--fg) !important; }
+
+/* hero */
+.hero { display: flex; gap: 32px; align-items: center; padding-top: 32px; }
+.hero__text { flex: 1; }
+.hero__kicker { color: var(--muted); margin: 0 0 .6em; font-size: .95rem; }
+.hero__lead { font-size: 1.1rem; max-width: 560px; color: var(--fg); }
+.hero__links a { margin-right: 18px; font-weight: 500; }
+.hero__photo img {
+  width: 180px; height: 180px; object-fit: cover; border-radius: 50%;
+  border: 1px solid var(--line); display: block;
+}
+
+/* what I do */
+.now__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 36px; }
+.now__grid h3 { font-size: 1rem; margin-bottom: .3em; }
+.now__grid p { margin: 0; color: var(--muted); font-size: .97rem; }
+
+/* work */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 20px 22px;
+  margin-bottom: 16px;
+}
+.card__head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.card__head h3 { margin: 0; }
+.card__meta { color: var(--muted); font-size: .9rem; margin: .3em 0 .8em; }
+.card p { margin: 0 0 .6em; }
+.card__stack { color: var(--muted); font-size: .88rem; margin-bottom: 0 !important; }
+.tag {
+  font-size: .75rem; text-transform: uppercase; letter-spacing: .06em;
+  border: 1px solid currentColor; border-radius: 999px; padding: 1px 9px; white-space: nowrap;
+}
+.tag--prod { color: var(--tag-prod); }
+.tag--pilot { color: var(--tag-pilot); }
+.tag--daily { color: var(--tag-daily); }
+.tag--mvp { color: var(--tag-mvp); }
+.work__earlier { color: var(--muted); font-size: .92rem; margin-top: 24px; }
+
+/* publications */
+.pubs ul { padding-left: 1.2em; margin: 0 0 1em; }
+.pubs li { margin-bottom: .8em; }
+.pubs p { color: var(--muted); font-size: .95rem; }
+
+/* contact */
+.contact p { margin: 0 0 .6em; }
+.contact__note { color: var(--muted); }
+
+/* footer */
+.foot {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  padding-top: 24px; padding-bottom: 32px;
+  border-top: 1px solid var(--line);
+  color: var(--muted); font-size: .85rem;
+}
+
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .hero { flex-direction: column-reverse; align-items: flex-start; }
+  .hero__photo img { width: 120px; height: 120px; }
+  .now__grid { grid-template-columns: 1fr; }
+  .top__nav a { margin-left: 12px; }
+}

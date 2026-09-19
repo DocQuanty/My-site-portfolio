@@ -1,128 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.min.css">
-	<title>HomePage</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kostiantyn Yurchenko — AI Engineer</title>
+  <meta name="description" content="AI engineer building LLM systems in closed networks: RAG, agents, on-premise. PhD in Computer Science. Kyiv, Ukraine.">
+  <meta property="og:title" content="Kostiantyn Yurchenko — AI Engineer">
+  <meta property="og:description" content="LLM systems in closed networks: RAG, agents, on-premise deployment.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
-	<div class="wrapper">
-		<header class="header">
-			<div class="header__content ">
-				<div class="header__menu menu">
-					<!-- <div class="menu__icon icon-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div> -->
-					<nav class="menu__body">
-						<ul class="menu__list">
-							<li><a href="./works.html" class="menu__link ">Works</a></li>
-							<!-- <li><a href="./blog.html" class="menu__link ">Blog</a></li> -->
-							<li><a href="./index.html" class="menu__link _active">Main</a></li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</header>
-		<main class="page">
-			<section class="hello">
-				<div class="hello__container _container">
-					<div class="hello__content">
-						<h1 class="hello__title title">Hi, I am Konstantine,<br>
-							Layout Designer</h1>
-						<div class="hello__text text">
-							Highly motivated web-developer with strong work ethics, effective communication
-							skills, and HTML5, CSS3, and JavaScript knowledge. Ready to take on the new
-							challenges.
-						</div>
-						<a href="https://drive.google.com/file/d/1kZC0NR8D08eZETFpOju4Vvj6ruLyFOgl/view?usp=sharing"
-							class="hello__btn btn" target="_blank">Download Resume</a>
-					</div>
-					<picture>
-						<source srcset="./img/img-jpg/face-Konst.webp" type="image/webp"><img class="hello__avatar"
-							src="./img/img-jpg/face-Konst.jpg" alt="#">
-					</picture>
-				</div>
-			</section>
-			<section class="recent-posts">
-				<div class="recent-posts__container _container">
-					<header class="recent-posts__header">
-						<div class="recent-posts__title title-posts">Best works</div>
-					</header>
-					<div class="recent-posts__items">
-						<div class="recent-posts__column">
-							<article class="recent-posts__item recent-post">
-								<a class="recent-post__title " href="https://docquanty.github.io/portfolio/AvtoSchool/">
-									Driving school
-								</a>
-								<div class="recent-post__info">02 Marth 2021<span>|</span>Layout, Photoshop</div>
-								<div class="recent-post__text text">
-									The page is made in a bright green style. Page using html css, compiled with scss.
-								</div>
-							</article>
-						</div>
-						<div class="recent-posts__column">
-							<article class="recent-posts__item recent-post">
-								<a class="recent-post__title "
-									href="https://docquanty.github.io/portfolio/Ilinslite%20polya/">
-									Residential complex Ilini fields</a>
-								<div class="recent-post__info">01 Feb 2021<span>|</span>Figma, Layout</div>
-								<div class="recent-post__text text">
-									The page was created in yellow-green style. Used on the page html css js.
-								</div>
-							</article>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section class="featured-works">
-				<div class="featured-works__container _container">
-					<div class="featured-works__title title-posts">Featured works</div>
-					<div class="featured-works__items works">
-						<article class="works__item">
-							<a href="https://docquanty.github.io/portfolio/magaz-breeze/" class="works__image _ibg">
-								<picture>
-									<source srcset="./img/img-jpg/breez01.webp" type="image/webp"><img
-										src="./img/img-jpg/breez01.jpg" alt="work_01">
-								</picture>
-							</a>
-							<div class="works__body">
-								<a href="https://docquanty.github.io/portfolio/magaz-breeze/"
-									class="works__title">Breeze Noticeables</a>
-								<div class="works__info">
-									<div class="works__year">2021</div>
-									<div class="works__category">Online Store</div>
-								</div>
-								<div class="works__text">Start page for an online store.
-									Drop-down lists, buttons, sliders are laid out in blue-turquoise color</div>
-							</div>
-						</article>
+  <header class="top">
+    <a class="top__name" href="#">K. Yurchenko</a>
+    <nav class="top__nav">
+      <a href="#work">Work</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+      <a class="top__cv" href="cv/Kostiantyn_Yurchenko_CV.pdf">CV</a>
+    </nav>
+  </header>
 
+  <main>
+    <section class="hero">
+      <div class="hero__text">
+        <p class="hero__kicker">AI Engineer · Kyiv, Ukraine</p>
+        <h1>I build LLM systems that run inside closed networks.</h1>
+        <p class="hero__lead">
+          Retrieval-augmented generation, agents and evaluation on self-hosted models —
+          shipped to production for the Armed Forces of Ukraine and piloted for business.
+          PhD in Computer Science (2026).
+        </p>
+        <p class="hero__links">
+          <a href="https://github.com/DocQuanty">GitHub</a>
+          <a href="https://orcid.org/0000-0003-3150-0027">ORCID</a>
+          <a href="#contact">LinkedIn</a>
+          <a href="cv/Kostiantyn_Yurchenko_CV.pdf">Download CV</a>
+        </p>
+      </div>
+      <picture class="hero__photo">
+        <source srcset="img/img-jpg/face-Konst.webp" type="image/webp">
+        <img src="img/img-jpg/face-Konst.jpg" alt="Kostiantyn Yurchenko" width="220" height="220">
+      </picture>
+    </section>
 
-					</div>
-				</div>
-			</section>
-		</main>
-		<footer class="footer">
-			<div class="footer__content _container">
-				<div class="footer__social social">
-					<a href="https://www.facebook.com/profile.php?id=100017187758700" target="_blank"
-						class="social__item _icon-fb"></a>
-					<a href="https://www.instagram.com/urchikak8/" class="social__item _icon-insta" target="_blank"></a>
-					<!-- <a href="#" class="social__item _icon-twitter"></a>
-            <a href="#" class="social__item _icon-Linkedin"></a> -->
-				</div>
-				<div class="footer__copyright">Copyright ©2020 All rights reserved </div>
-			</div>
-		</footer>
-	</div>
-	<script src="js/script.min.js"></script>
+    <section class="now">
+      <h2>What I do</h2>
+      <div class="now__grid">
+        <div>
+          <h3>RAG on local models</h3>
+          <p>Qdrant and pgvector retrieval, e5/bge-m3 embeddings, query expansion, semantic deduplication — served by Ollama, no data leaves the network.</p>
+        </div>
+        <div>
+          <h3>Agents with a human in the loop</h3>
+          <p>Structured output, tool use, MCP servers, confirmation before any irreversible action. Telegram as the interface people already have open.</p>
+        </div>
+        <div>
+          <h3>Evaluation before release</h3>
+          <p>LLM-as-judge benchmarks, NER model comparisons, versioned prompt registries. Model choices backed by numbers, not vibes.</p>
+        </div>
+        <div>
+          <h3>From discovery to CI/CD</h3>
+          <p>Client interviews, specification, proposal — then FastAPI, Docker, Kubernetes, GitLab CI. One person who sees the whole path.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="work">
+      <h2>Selected work</h2>
+
+      <article class="card">
+        <div class="card__head">
+          <h3>LINZA — on-premise RAG platform for lessons-learned analysis</h3>
+          <span class="tag tag--prod">in production</span>
+        </div>
+        <p class="card__meta">Institute of Software Systems, NAS of Ukraine · for the Armed Forces of Ukraine · 2025–2026</p>
+        <p>
+          Twelve modules from document registry to root-cause analysis, report synthesis and DOCX export.
+          FastAPI + Qdrant + Ollama, five-role RBAC, SSE streaming, five-stage GitLab CI/CD deploying to Kubernetes.
+          An LLM-as-judge benchmark drove the production model swap: generation 54 s instead of 317 s at the same quality score.
+        </p>
+        <p class="card__stack">Python · FastAPI · Qdrant · Ollama · PostgreSQL · Kubernetes · GitLab CI</p>
+      </article>
+
+      <article class="card">
+        <div class="card__head">
+          <h3>TERMIN — military terminology knowledge graph</h3>
+          <span class="tag tag--prod">in production</span>
+        </div>
+        <p class="card__meta">Institute of Software Systems, NAS of Ukraine · 2025–2026</p>
+        <p>
+          Ukrainian military terminology as a SKOS-XL graph: 76 000 terms, synonym canonisation, broader/narrower hierarchy,
+          role-based triage UI and a REST contract consumed by LINZA through a pluggable provider.
+        </p>
+        <p class="card__stack">FastAPI · PostgreSQL + pgvector · Ollama · k3s · Helm</p>
+      </article>
+
+      <article class="card">
+        <div class="card__head">
+          <h3>Cosmotrade — AI manager in the client's chat</h3>
+          <span class="tag tag--pilot">pilot</span>
+        </div>
+        <p class="card__meta">Independent · B2B distributor of aesthetic-medicine equipment · 2026</p>
+        <p>
+          Telegram message → structured intent via LLM → human confirmation card → task in Asana.
+          Meeting transcription on self-hosted Whisper. Discovery, specification and a three-tier commercial proposal — then the pilot itself.
+        </p>
+        <p class="card__stack">Python · aiogram · Ollama · Asana API · Vexa/Whisper</p>
+      </article>
+
+      <article class="card">
+        <div class="card__head">
+          <h3>keel-core / keel-agent — LLM core library and personal agent</h3>
+          <span class="tag tag--daily">daily use</span>
+        </div>
+        <p class="card__meta">Own project · 2026 · private repository</p>
+        <p>
+          A thin library for the pattern "untrusted text → LLM structured output → verified result": client, guardrails,
+          observability, embeddings + Qdrant. On top of it a Telegram agent for voice and text with intent routing and
+          confirmation before irreversible actions. 2 500 tests, a second instance for an external tester.
+        </p>
+        <p class="card__stack">Python · Pydantic · Qdrant · PostgreSQL · Whisper · Docker</p>
+      </article>
+
+      <article class="card">
+        <div class="card__head">
+          <h3>CRM Dropship — SaaS for dropshipping suppliers</h3>
+          <span class="tag tag--mvp">MVP</span>
+        </div>
+        <p class="card__meta">Own product · mydrop.com.ua · 2025–2026</p>
+        <p>
+          Orders with carrier integration, warehouse with audited stock movements, chats from three messengers, 15 KPIs.
+          AI modules on the Anthropic API: smart replies, anomaly detection, semantic search.
+        </p>
+        <p class="card__stack">NestJS · TypeScript · PostgreSQL + Prisma · Redis · BullMQ · React · Anthropic API</p>
+      </article>
+
+      <article class="card">
+        <div class="card__head">
+          <h3>OSINT platform — source collection and moderation</h3>
+          <span class="tag tag--daily">running</span>
+        </div>
+        <p class="card__meta">Own project · 2026</p>
+        <p>
+          Telegram-channel ingestion, topic classification and near-duplicate detection via simhash — deliberately no LLM in the pipeline (deterministic, zero per-item cost) — and a moderation queue instead of autoposting.
+          Configuration, code-duplication and performance audits; specifications kept in OpenSpec.
+        </p>
+        <p class="card__stack">Python · Telethon · aiogram · PostgreSQL · OpenSpec</p>
+      </article>
+
+      <p class="work__earlier">
+        Earlier (2020–2021): front-end layouts in HTML/SCSS —
+        <a href="https://docquanty.github.io/portfolio/">archive</a>.
+      </p>
+    </section>
+
+    <section id="publications" class="pubs">
+      <h2>Publications</h2>
+      <ul>
+        <li>
+          Rogushina J., Yurchenko K., Bova Yu. <em>Integration of Semantic Wiki Technologies with Large Language Models as a Technological Foundation for Experience Acquisition from Natural Language Documents.</em>
+          AISTDS'2025, CEUR Workshop Proceedings, Vol. 4133, pp. 115–135.
+        </li>
+        <li>
+          Sinitsyn I., Yurchenko K., Lashchonov B., Bova Yu. <em>Architectural solution for a chatbot with recursive knowledge refinement based on LLaMA 3 and Semantic MediaWiki.</em>
+          Tavria Scientific Bulletin, Technical Sciences, 2025, no. 4. <a href="https://doi.org/10.32782/tnv-tech.2025.4.1.27">DOI</a>
+        </li>
+        <li>
+          Sinitsyn I., Rogushina J., Yurchenko K. <em>Integration of large language models with semantic processing tools as an instrument of knowledge digitalisation.</em>
+          Problems in Programming, 2025, no. 2, pp. 63–76. <a href="https://doi.org/10.15407/pp2025.02.063">DOI</a>
+        </li>
+      </ul>
+      <p>Full list — <a href="https://orcid.org/0000-0003-3150-0027">ORCID 0000-0003-3150-0027</a>.
+        PhD thesis (2026, Institute of Software Systems, NAS of Ukraine): ontological analysis and generative AI for personalising postgraduate education.</p>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <p>
+        <a href="mailto:EMAIL_PLACEHOLDER">EMAIL_PLACEHOLDER</a> ·
+        <a href="https://github.com/DocQuanty">github.com/DocQuanty</a> ·
+        <a href="LINKEDIN_PLACEHOLDER">LinkedIn</a>
+      </p>
+      <p class="contact__note">Open to AI engineering roles — on-premise and privacy-sensitive systems are where I do my best work.</p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>© 2026 Kostiantyn Yurchenko</span>
+    <span>Static HTML, no tracking.</span>
+  </footer>
 </body>
-
 </html>
