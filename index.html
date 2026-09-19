@@ -9,6 +9,13 @@
   <meta property="og:description" content="LLM systems in closed networks: RAG, agents, on-premise deployment.">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="style.css">
+  <script>
+    // Apply a saved theme before first paint to avoid a flash; system theme otherwise.
+    try {
+      var t = localStorage.getItem('theme');
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  </script>
 </head>
 <body>
   <header class="top">
@@ -17,6 +24,7 @@
       <a href="#work">Work</a>
       <a href="#publications">Publications</a>
       <a href="#contact">Contact</a>
+      <button class="theme-toggle" type="button" aria-label="Toggle colour theme" title="Toggle colour theme">☾</button>
     </nav>
   </header>
 
@@ -187,5 +195,24 @@
     <span>© 2026 Kostiantyn Yurchenko</span>
     <span>Static HTML, no tracking.</span>
   </footer>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.querySelector('.theme-toggle');
+      var mq = window.matchMedia('(prefers-color-scheme: dark)');
+      function current() {
+        return root.getAttribute('data-theme') || (mq.matches ? 'dark' : 'light');
+      }
+      function paint() { btn.textContent = current() === 'dark' ? '☀' : '☾'; }
+      btn.addEventListener('click', function () {
+        var next = current() === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        paint();
+      });
+      mq.addEventListener('change', paint);
+      paint();
+    })();
+  </script>
 </body>
 </html>

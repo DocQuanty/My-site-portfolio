@@ -12,8 +12,10 @@
   --max: 880px;
 }
 
+/* Dark palette: system preference unless the visitor picked light explicitly,
+   or an explicit dark choice. Kept as one variable set so both paths match. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #15161a;
     --fg: #ebe9e3;
     --muted: #a09d94;
@@ -26,6 +28,18 @@
     --tag-mvp: #a09d94;
   }
 }
+:root[data-theme="dark"] {
+  --bg: #15161a;
+  --fg: #ebe9e3;
+  --muted: #a09d94;
+  --line: #2b2d33;
+  --accent: #7fb3d5;
+  --card: #1d1f25;
+  --tag-prod: #7fd19a;
+  --tag-pilot: #e0b45a;
+  --tag-daily: #7fb3d5;
+  --tag-mvp: #a09d94;
+}
 
 * { box-sizing: border-box; }
 
@@ -35,6 +49,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--fg);
+  transition: background .2s, color .2s;
   font: 17px/1.55 -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
@@ -69,6 +84,11 @@ section:first-of-type { border-top: 0; }
 .top__nav a { margin-left: 18px; color: var(--muted); }
 .top__nav a:hover { color: var(--accent); text-decoration: none; }
 .top__cv { border: 1px solid var(--line); border-radius: 6px; padding: 4px 10px; color: var(--fg) !important; }
+.theme-toggle {
+  margin-left: 18px; background: none; border: 1px solid var(--line); border-radius: 6px;
+  color: var(--muted); cursor: pointer; font: inherit; font-size: .9rem; padding: 3px 9px; line-height: 1.4;
+}
+.theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
 
 /* hero */
 .hero { display: flex; gap: 32px; align-items: center; padding-top: 32px; }
